@@ -2675,7 +2675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862bacff31c41450583735b005cc70f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 9
   myCam: {fileID: 963194227}
 --- !u!1 &659087943
 GameObject:
@@ -4479,8 +4479,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4e9070818da462ab2c14ba4cfe9da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 656995539}
+  playerTarget: {fileID: 656995539}
   cameraOffset: {x: 0, y: 0, z: 0}
+  smoothFactor: 0.183
+  lookAtTarget: 1
+  rotateAroundPlayer: 1
+  rotationSpeed: 5
 --- !u!1 &968735490
 GameObject:
   m_ObjectHideFlags: 0
