@@ -43,7 +43,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Moving
-        rb.velocity = new Vector3(movement.x * speed, rb.velocity.y, movement.z * speed);
+        rb.velocity = new Vector3(movement.x * speed * speedEQ, rb.velocity.y, movement.z * speed * speedEQ);
+
+        // EQ Speed
+
+        if(verticalInput != 0 && horizontalInput != 0)
+        {
+            speedEQ = 0.75f;
+        }
+        else
+        {
+            speedEQ = 1;
+        }
 
     }
 
