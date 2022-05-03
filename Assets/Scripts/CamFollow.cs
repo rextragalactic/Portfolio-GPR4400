@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CamFollow : MonoBehaviour
 {
+    // VARIABLES
     [SerializeField]
     private Transform playerTarget;
 
@@ -53,4 +54,4 @@ public class CamFollow : MonoBehaviour
     {
         
     }
-}
+}// CODE END
