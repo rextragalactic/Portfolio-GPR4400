@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/PlayerMovement.cs" />
     <Compile Include="Assets/Scripts/CamFollow.cs" />
+    <Compile Include="Assets/Scripts/AIController.cs" />
     <Compile Include="Assets/Scripts/ControllerAI.cs" />
   </ItemGroup>
   <ItemGroup>
