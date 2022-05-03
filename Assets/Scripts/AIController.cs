@@ -43,25 +43,46 @@ public class AIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ExicuteStates();
+    }
+
+    private void ExicuteStates()
+    {
+
         switch (currentState)
         {
             case AI_States.Roaming:
                 CheckWaypoints();
                 break;
             case AI_States.FollowPlayer:
+                FollowPlayer();
                 break;
             case AI_States.Attack:
                 break;
         }
-            
+    }
+
+    private void FollowPlayer()
+    {
+        Debug.Log("Following the Player");
+        if (Vector3.Distance(transform.position, playerTarget.transform.position) > 10)
+        {
+            Debug.Log("Going back to Path");
+            currentState = AI_States.Roaming;
+        }
+
+        currentWayPoint = playerTarget;
+        thisAgent.SetDestination(currentWayPoint.transform.position);
+
+
     }
 
     private void CheckWaypoints()
     {
         Debug.Log("Checking for Path");
-        if(Vector3.Distance(transform.position, playerTarget.transform.position) < 3)
+        if(Vector3.Distance(transform.position, playerTarget.transform.position) < 20)
         {
-            currentState = AI_States.Roaming;
+            currentState = AI_States.FollowPlayer;
         }
 
         int tempWaypoint = curWaypointIndex;
@@ -70,11 +91,13 @@ public class AIController : MonoBehaviour
         {
             while (curWaypointIndex == tempWaypoint)
             {
-                curWaypointIndex = UnityEngine.Random.Range(0, waypoints.Length);
+                curWaypointIndex = Random.Range(0, waypoints.Length);
             }
 
             currentWayPoint = waypoints[curWaypointIndex];
             thisAgent.SetDestination(currentWayPoint.transform.position);
         }
     }
+
+   
 }
