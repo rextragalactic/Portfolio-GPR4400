@@ -65,7 +65,7 @@ public class AIController : MonoBehaviour
     private void FollowPlayer()
     {
         Debug.Log("Following the Player");
-        if (Vector3.Distance(transform.position, playerTarget.transform.position) > 10)
+        if (Vector3.Distance(transform.position, playerTarget.transform.position) > 20)
         {
             Debug.Log("Going back to Path");
             currentState = AI_States.Roaming;
@@ -82,12 +82,13 @@ public class AIController : MonoBehaviour
         Debug.Log("Checking for Path");
         if(Vector3.Distance(transform.position, playerTarget.transform.position) < 20)
         {
+            Debug.Log("FOLLOW FOLLOW FOLLOW");
             currentState = AI_States.FollowPlayer;
         }
 
         int tempWaypoint = curWaypointIndex;
 
-        if(thisAgent.remainingDistance < 2)
+        if(thisAgent.remainingDistance < 5)
         {
             while (curWaypointIndex == tempWaypoint)
             {
